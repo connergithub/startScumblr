@@ -1,4 +1,4 @@
-# startScumblr - This script to be placed in the root Scumblr folder. You need to install redis, sidekiq, ruby and rails.
+# startScumblr - This script to be placed in the root Scumblr folder. You need to install redis, sidekiq, ruby and rails. If you get #connection errors, do a service postgresql restart
 redis-server &
-../.rbenv/shims/bundle exec sidekiq -l log/sidekiq.log &
-../.rbenv/shims/bundle exec rails s &
+bundle exec sidekiq -l log/sidekiq.log &
+bundle exec rails s -b 0.0.0.0 &
